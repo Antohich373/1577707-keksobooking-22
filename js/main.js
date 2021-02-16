@@ -31,7 +31,6 @@ const getRandomArrayElement = function(element) {
   return element[_.random(0, element.length -1)]
 }
 
-//Прайс - стоимость
 const autoNumber = function(min, max){
   if(min >= max || max <= min || min < 0 || max < 0) {
     throw(new Error('Ошибка - введите числа корректно'))
