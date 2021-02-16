@@ -8,13 +8,13 @@ const authorNumber = function(min, max){
 
 const authorCount = 10;
 
-const author = function() {
+const creatAuthor = function() {
   return {
     avatar: authorNumber(1, 8),
   }
 }
 
-const similarAuthor = new Array(authorCount).fill(null).map(() => author());
+const author = new Array(authorCount).fill(null).map(() => creatAuthor());
 
 //СОДЕРЖАНИЕ ОБЪЯВЛЕНИЯ
 const Title = [
@@ -31,6 +31,7 @@ const getRandomArrayElement = function(element) {
   return element[_.random(0, element.length -1)]
 }
 
+//Прайс - стоимость
 const autoNumber = function(min, max){
   if(min >= max || max <= min || min < 0 || max < 0) {
     throw(new Error('Ошибка - введите числа корректно'))
@@ -81,7 +82,7 @@ const Photos = [
 
 const offerCount = 10
 
-const offer = function() {
+const creatOffer = function() {
   return {
     title: getRandomArrayElement(Title),
     address: getRandomArrayElement(Address),
@@ -97,7 +98,7 @@ const offer = function() {
   }
 }
 
-let similarOffer = new Array(offerCount).fill(null).map(() => offer());
+const offer = new Array(offerCount).fill(null).map(() => creatOffer());
 
 //ЛОКАЦИЯ
 const randomLocation = function(min, max){
@@ -109,11 +110,12 @@ const randomLocation = function(min, max){
 
 const locationCount = 10
 
-const lokation = function() {
+const creatLokation = function() {
   return {
     x: randomLocation(35.65000, 35.70000),
     y: randomLocation(139.70000, 139.80000),
   }
 }
 
-let similarLokation = new Array(locationCount).fill(null).map(() => lokation());
+const lokation = new Array(locationCount).fill(null).map(() => creatLokation());
+
