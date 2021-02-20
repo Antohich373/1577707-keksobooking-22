@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 //ОПИСАНИЕ АВТОРА
 const authorNumber = function(min, max){
   if(min >= max || max <= min || min < 0 || max < 0) {
@@ -27,11 +28,12 @@ const Address = [
   'location.x, location.y',
 ]
 
-const getRandomArrayElement = function(element) {
-  return element[_.random(0, element.length -1)]
-}
+const getRandomLengthMass = function(element) {
+  let lengthMass = element.length;
+  let randomLengthMass = Math.floor(Math.random() * lengthMass);
+  return element[randomLengthMass];
+};
 
-//Прайс - стоимость
 const autoNumber = function(min, max){
   if(min >= max || max <= min || min < 0 || max < 0) {
     throw(new Error('Ошибка - введите числа корректно'))
@@ -84,17 +86,17 @@ const offerCount = 10
 
 const creatOffer = function() {
   return {
-    title: getRandomArrayElement(Title),
-    address: getRandomArrayElement(Address),
+    title: getRandomLengthMass(Title),
+    address: getRandomLengthMass(Address),
     price: autoNumber(0, 99999),
-    type: getRandomArrayElement(Type),
+    type: getRandomLengthMass(Type),
     rooms: autoNumber(0, 99999),
     guests: autoNumber(0, 99999),
-    checkin: getRandomArrayElement(Checkin),
-    checkout: getRandomArrayElement(Checkout),
-    features: getRandomArrayElement(Features),
-    description: getRandomArrayElement(Description),
-    photos: getRandomArrayElement(Photos),
+    checkin: getRandomLengthMass(Checkin),
+    checkout: getRandomLengthMass(Checkout),
+    features: getRandomLengthMass(Features),
+    description: getRandomLengthMass(Description),
+    photos: getRandomLengthMass(Photos),
   }
 }
 
@@ -110,12 +112,12 @@ const randomLocation = function(min, max){
 
 const locationCount = 10
 
-const creatLokation = function() {
+const creatLocation = function() {
   return {
     x: randomLocation(35.65000, 35.70000),
     y: randomLocation(139.70000, 139.80000),
   }
 }
 
-const lokation = new Array(locationCount).fill(null).map(() => creatLokation());
+const locations = new Array(locationCount).fill(null).map(() => creatLocation());
 
