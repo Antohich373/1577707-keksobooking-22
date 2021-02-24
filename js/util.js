@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 const getRandomLengthMass = function(element) {
-  let lengthMass = element.length;
-  let randomLengthMass = Math.floor(Math.random() * lengthMass);
-  return element[randomLengthMass];
+  return element[Math.floor(Math.random() * element.length)];
 };
 
 export {getRandomLengthMass}

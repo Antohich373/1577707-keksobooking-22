@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {getRandomLengthMass} from'./util.js'
 
 //ОПИСАНИЕ АВТОРА
