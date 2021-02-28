@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import {getRandomLengthMass} from'./util.js'
 
 //ОПИСАНИЕ АВТОРА
@@ -18,6 +17,8 @@ const creatAuthor = function() {
 }
 
 const author = new Array(authorCount).fill(null).map(() => creatAuthor());
+
+export {author}
 
 //СОДЕРЖАНИЕ ОБЪЯВЛЕНИЯ
 const Title = [
@@ -98,6 +99,8 @@ const creatOffer = function() {
 
 const offer = new Array(offerCount).fill(null).map(() => creatOffer());
 
+export {offer}
+
 //ЛОКАЦИЯ
 const randomLocation = function(min, max){
   if(min >= max || max <= min || min < 0 || max < 0) {
@@ -116,4 +119,6 @@ const creatLocation = function() {
 }
 
 const locations = new Array(locationCount).fill(null).map(() => creatLocation());
+
+export {locations}
 
