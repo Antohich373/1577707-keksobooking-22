@@ -8,7 +8,7 @@ const authorNumber = function(min, max){
   return String('0' + (Math.floor(Math.random() * (max - min) + min)));
 }
 
-const authorCount = 10;
+let authorCount = 1;
 
 const creatAuthor = function() {
   return {
@@ -16,18 +16,18 @@ const creatAuthor = function() {
   }
 }
 
-const author = new Array(authorCount).fill(null).map(() => creatAuthor());
+let author = new Array(authorCount).fill(null).map(() => creatAuthor());
 
 export {author}
 
 //СОДЕРЖАНИЕ ОБЪЯВЛЕНИЯ
-const Title = [
-  'Пентхаус',
-  'Студия',
-  'Комната',
+const TITILE = [
+  'Пентхаусssssssssss',
+  'Студияssssssssss',
+  'Комнатаsssssssss',
 ]
 
-const Address = [
+const ADDRES = [
   'location.x, location.y',
 ]
 
@@ -38,26 +38,26 @@ const autoNumber = function(min, max){
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-const Type = [
+const TYPE = [
   'palace',
   'flat',
   'house',
   'bungalow',
 ]
 
-const Checkin = [
+const CHECKIN = [
   '12:00',
   '13:00',
   '14:00',
 ]
 
-const Checkout = [
+const CHECKOUT = [
   '12:00',
   '13:00',
   '14:00',
 ]
 
-const Features = [
+const FEATURES = [
   'wifi',
   'dishwasher',
   'parking',
@@ -66,38 +66,40 @@ const Features = [
   'conditioner',
 ]
 
-const Description = [
+const DESCRIPTION = [
   'просторная',
   'уютная',
   'красивая',
   'халупа',
 ]
 
-const Photos = [
+const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
 ]
 
-const offerCount = 10
+export {PHOTOS}
+
+let offerCount = 1
 
 const creatOffer = function() {
   return {
-    title: getRandomLengthMass(Title),
-    address: getRandomLengthMass(Address),
+    title: getRandomLengthMass(TITILE),
+    address: getRandomLengthMass(ADDRES),
     price: autoNumber(0, 99999),
-    type: getRandomLengthMass(Type),
+    type: getRandomLengthMass(TYPE),
     rooms: autoNumber(0, 99999),
     guests: autoNumber(0, 99999),
-    checkin: getRandomLengthMass(Checkin),
-    checkout: getRandomLengthMass(Checkout),
-    features: getRandomLengthMass(Features),
-    description: getRandomLengthMass(Description),
-    photos: getRandomLengthMass(Photos),
+    checkin: getRandomLengthMass(CHECKIN),
+    checkout: getRandomLengthMass(CHECKOUT),
+    features: getRandomLengthMass(FEATURES),
+    description: getRandomLengthMass(DESCRIPTION),
+    photos: getRandomLengthMass(PHOTOS),
   }
 }
 
-const offer = new Array(offerCount).fill(null).map(() => creatOffer());
+let offer = new Array(offerCount).fill(null).map(() => creatOffer());
 
 export {offer}
 
@@ -109,7 +111,7 @@ const randomLocation = function(min, max){
   return  Math.random() * (max - min) + min;
 }
 
-const locationCount = 10
+let locationCount = 1
 
 const creatLocation = function() {
   return {
@@ -118,7 +120,7 @@ const creatLocation = function() {
   }
 }
 
-const locations = new Array(locationCount).fill(null).map(() => creatLocation());
+let locations = new Array(locationCount).fill(null).map(() => creatLocation());
 
 export {locations}
 
