@@ -66,6 +66,8 @@ const FEATURES = [
   'conditioner',
 ]
 
+export {FEATURES}
+
 const DESCRIPTION = [
   'просторная',
   'уютная',
