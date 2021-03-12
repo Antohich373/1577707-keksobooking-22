@@ -8,7 +8,7 @@ const authorNumber = function(min, max){
   return String('0' + (Math.floor(Math.random() * (max - min) + min)));
 }
 
-let authorCount = 1;
+const authorCount = 1;
 
 const creatAuthor = function() {
   return {
@@ -16,7 +16,7 @@ const creatAuthor = function() {
   }
 }
 
-let author = new Array(authorCount).fill(null).map(() => creatAuthor());
+const author = new Array(authorCount).fill(null).map(() => creatAuthor());
 
 export {author}
 
@@ -83,7 +83,7 @@ const PHOTOS = [
 
 export {PHOTOS}
 
-let offerCount = 1
+const offerCount = 1
 
 const creatOffer = function() {
   return {
@@ -101,7 +101,7 @@ const creatOffer = function() {
   }
 }
 
-let offer = new Array(offerCount).fill(null).map(() => creatOffer());
+const offer = new Array(offerCount).fill(null).map(() => creatOffer());
 
 export {offer}
 
@@ -113,7 +113,7 @@ const randomLocation = function(min, max){
   return  Math.random() * (max - min) + min;
 }
 
-let locationCount = 1
+const locationCount = 1
 
 const creatLocation = function() {
   return {
@@ -122,7 +122,7 @@ const creatLocation = function() {
   }
 }
 
-let locations = new Array(locationCount).fill(null).map(() => creatLocation());
+const locations = new Array(locationCount).fill(null).map(() => creatLocation());
 
 export {locations}
 
