@@ -4,8 +4,6 @@ import {PHOTOS} from './ad.js'
 import {FEATURES} from './ad.js'
 // import {locations} from './ad.js'
 
-let popupCard = document.querySelector('.template-card');
-
 let popupCardTemplate = document.querySelector('#card').content.querySelector('.popup');
 
 const popupCards = offer;
@@ -83,11 +81,10 @@ popupCards.forEach((offer) => {
   popupCardElement.querySelector('.popup__text--time').textContent = 'Заезд после ' + offer.checkin + ' , выезд до ' + offer.checkout;
   popupCardElement.querySelector('.popup__description').textContent = offer.description;
 
-  for(let i = 0; i <= PHOTOS.length - 1; i++) {
+  for(let i = 0; i <= PHOTOS.length; i++) {
     CardList.appendChild(cardCreat('img', 'popup__photo', i))
   }
 
-  popupCard.appendChild(popupCardElement);
 });
 
 popupAvatar.forEach((author) => {
