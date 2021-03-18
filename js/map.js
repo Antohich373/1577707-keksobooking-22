@@ -1,5 +1,7 @@
 /* global L:readonly */
 import {locations} from './ad.js'
+import {popupCardElement} from './generationAd.js'
+
 let formChild = document.querySelector('.ad-form')
 
 let formChildItem = formChild.children
@@ -72,7 +74,11 @@ points.forEach(({lat, lng}) => {
     },
   );
 
-  marker.addTo(map)
+  marker
+    .addTo(map)
+    .bindPopup(
+      popupCardElement,
+    );
 });
 
 

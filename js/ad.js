@@ -99,8 +99,8 @@ const creatOffer = function() {
     description: getRandomLengthMass(DESCRIPTION),
     photos: getRandomLengthMass(PHOTOS),
   }
-};
 
+};
 
 const offer = new Array(offerCount).fill(null).map(() => creatOffer());
 

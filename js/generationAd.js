@@ -87,6 +87,8 @@ popupCards.forEach((offer) => {
 
 });
 
+export {popupCardElement};
+
 popupAvatar.forEach((author) => {
   popupCardElement.querySelector('.popup__avatar').src = 'img/avatars/user' + author.avatar + '.png';
 });
