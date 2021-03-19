@@ -99,11 +99,13 @@ const creatOffer = function() {
     description: getRandomLengthMass(DESCRIPTION),
     photos: getRandomLengthMass(PHOTOS),
   }
+
 };
 
 const offer = new Array(offerCount).fill(null).map(() => creatOffer());
 
 export {offer};
+
 
 //ЛОКАЦИЯ
 const randomLocation = function(min, max){
@@ -113,12 +115,12 @@ const randomLocation = function(min, max){
   return  Math.random() * (max - min) + min;
 };
 
-const locationCount = 1;
+const locationCount = 3;
 
 const creatLocation = function() {
   return {
-    x: randomLocation(35.65000, 35.70000),
-    y: randomLocation(139.70000, 139.80000),
+    lat: randomLocation(35.65000, 35.70000),
+    lng: randomLocation(139.70000, 139.80000),
   }
 };
 

@@ -4,3 +4,7 @@ import './ad.js'
 
 import './generationAd.js'
 
+import './map.js'
+
+import '../leaflet/leaflet.js'
+
