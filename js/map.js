@@ -1,5 +1,4 @@
 /* global L:readonly */
-import {locations} from './ad.js'
 import {popupCardElement} from './generationAd.js'
 
 let formChild = document.querySelector('.ad-form')
@@ -54,33 +53,33 @@ marker.on('moveend', (evt) => {
   return evt.target.getLatLng();
 });
 
-const points = locations
+const renderPopupCardsLocation = function(popupLocation){
+  popupLocation.forEach(({location}) => {
+    const icon = L.icon({
+      iconUrl: '../img/pin.svg',
+      iconSize: [40, 40],
+      iconAnchor: [20, 40],
+    });
 
-points.forEach(({lat, lng}) => {
-  const icon = L.icon({
-    iconUrl: '../img/pin.svg',
-    iconSize: [40, 40],
-    iconAnchor: [20, 40],
-  });
+    const lng = location.lng
+    const lat = location.lat
 
-
-  const marker = L.marker(
-    {
-      lat,
-      lng,
-    },
-    {
-      icon,
-    },
-  );
-
-  marker
-    .addTo(map)
-    .bindPopup(
-      popupCardElement,
+    const marker = L.marker(
+      {
+        lat,
+        lng,
+      },
+      {
+        icon,
+      },
     );
-});
 
+    marker
+      .addTo(map)
+      .bindPopup(
+        popupCardElement,
+      );
+  });
+}
 
-
-
+export {renderPopupCardsLocation}
