@@ -1,7 +1,3 @@
-// import {PHOTOS} from './ad.js'
-// import {FEATURES} from './ad.js'
-// import {locations} from './ad.js'
-
 let popupCardTemplate = document.querySelector('#card').content.querySelector('.popup');
 
 let popupCardElement = popupCardTemplate.cloneNode(true);
@@ -46,8 +42,6 @@ let typeHousing = function(type) {
   }
   return type
 };
-
-
 
 const renderPopupCards = function(popupCards){
   popupCards.forEach(({offer}) => {

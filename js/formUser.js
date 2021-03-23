@@ -1,4 +1,5 @@
-
+import {showAlert} from './util.js'
+import {successfulSending} from './util.js'
 const submitDescriptionForm = document.querySelector('.ad-form')
 
 const setUserFormSubmit = function(onSuccess){
@@ -13,7 +14,18 @@ const setUserFormSubmit = function(onSuccess){
         method: 'POST',
         body: formData,
       },
-    ).then(() => onSuccess());
+    )
+      .then((response) => {
+        if (response.ok) {
+          onSuccess();
+          successfulSending();
+        } else {
+          showAlert();
+        }
+      })
+      .catch(() => {
+        showAlert();
+      });
   })
 }
 

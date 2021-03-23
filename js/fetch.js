@@ -7,7 +7,15 @@ import {setUserFormSubmit} from './formUser.js'
 const RENDER_CARDS_COUNT = 9
 
 const clearSimilarList = () => {
-  console.log('тест')
+  let title = document.getElementById('title')
+  let address = document.getElementById('address')
+  let price = document.getElementById('price')
+  let description = document.getElementById('description')
+
+  title.value = ''
+  address.value = ''
+  price.value = ''
+  description.value = ''
 };
 
 fetch('https://22.javascript.pages.academy/keksobooking/data')
