@@ -1,3 +1,4 @@
+import {clearSimilarList} from './fetch.js'
 const showAlert = function() {
   let errorMessageTemplate = document.querySelector('#error').content.querySelector('.error');
   let errorMessage = errorMessageTemplate.cloneNode(true);
@@ -42,13 +43,5 @@ let ressetButton = document.querySelector('.ad-form__reset')
 
 ressetButton.addEventListener('click', function(evt) {
   evt.preventDefault()
-  let title = document.getElementById('title')
-  let address = document.getElementById('address')
-  let price = document.getElementById('price')
-  let description = document.getElementById('description')
-
-  title.value = ''
-  address.value = ''
-  price.value = ''
-  description.value = ''
+  clearSimilarList()
 })

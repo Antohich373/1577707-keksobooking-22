@@ -1,9 +1,3 @@
-let popupCardTemplate = document.querySelector('#card').content.querySelector('.popup');
-
-let popupCardElement = popupCardTemplate.cloneNode(true);
-
-let CardListFeatures = popupCardElement.querySelector('.popup__features');
-
 let fitears = function(element, fiters) {
   switch (fiters) {
     case 'wifi':
@@ -43,49 +37,51 @@ let typeHousing = function(type) {
   return type
 };
 
-const renderPopupCards = function(popupCards){
-  popupCards.forEach(({offer}) => {
-    popupCardElement.querySelector('.popup__title').textContent = offer.title;
-    popupCardElement.querySelector('.popup__text--address').textContent = offer.address;
-    popupCardElement.querySelector('.popup__text--price').textContent = offer.price + ' ₽/ночь';
+const renderPopupCards = function(offer, author){
+  let popupCardTemplate = document.querySelector('#card').content.querySelector('.popup');
+  const popupCardElement = popupCardTemplate.cloneNode(true);
+  let CardListFeatures = popupCardElement.querySelector('.popup__features');
 
-    let cardCreatFeatures = function(i) {
-      let element = document.createElement('li')
-      element.classList.add('popup__feature')
-      element.textContent = fitears(element, offer.features[i])
-      return element
-    };
+  popupCardElement.querySelector('.popup__avatar').src = author.avatar;
+  popupCardElement.querySelector('.popup__title').textContent = offer.title;
+  popupCardElement.querySelector('.popup__text--address').textContent = offer.address;
+  popupCardElement.querySelector('.popup__text--price').textContent = offer.price + ' ₽/ночь';
 
-    for(let i = 0; i <= offer.features.length - 1; i ++){
-      CardListFeatures.appendChild(cardCreatFeatures(i))
-    }
+  let cardCreatFeatures = function(i) {
+    let element = document.createElement('li')
+    element.classList.add('popup__feature')
+    element.textContent = fitears(element, offer.features[i])
+    return element
+  };
 
-    popupCardElement.querySelector('.popup__type').textContent = typeHousing(offer.type);
-    popupCardElement.querySelector('.popup__text--capacity').textContent = offer.rooms + ' комнаты для ' + offer.guests + ' гостей';
-    popupCardElement.querySelector('.popup__text--time').textContent = 'Заезд после ' + offer.checkin + ' , выезд до ' + offer.checkout;
-    popupCardElement.querySelector('.popup__description').textContent = offer.description;
-    let CardList = popupCardElement.querySelector('.popup__photos');
+  for(let i = 0; i <= offer.features.length - 1; i ++){
+    CardListFeatures.appendChild(cardCreatFeatures(i))
+  }
 
-    let cardCreat = function (tagName, className, i) {
-      let element = document.createElement(tagName)
-      element.classList.add(className)
-      element.src =  offer.photos[i]
-      return element
-    };
+  popupCardElement.querySelector('.popup__type').textContent = typeHousing(offer.type);
+  popupCardElement.querySelector('.popup__text--capacity').textContent = offer.rooms + ' комнаты для ' + offer.guests + ' гостей';
+  popupCardElement.querySelector('.popup__text--time').textContent = 'Заезд после ' + offer.checkin + ' , выезд до ' + offer.checkout;
+  popupCardElement.querySelector('.popup__description').textContent = offer.description;
+  let cardList = popupCardElement.querySelector('.popup__photos');
 
-    for(let i = 0; i <= offer.photos.length; i++) {
-      CardList.appendChild(cardCreat('img', 'popup__photo', i))
-    }
-  });
+  let cardCreat = function (tagName, className, i) {
+    let element = document.createElement(tagName)
+    element.classList.add(className)
+    element.src =  offer.photos[i]
+    element.style.cssText=
+    `heigth: 40px;
+      width: 45px;
+    `
+    return element
+  };
+
+  for(let i = 0; i <= offer.photos.length - 1; i++) {
+    cardList.appendChild(cardCreat('img', 'popup__photo', i))
+  }
+
+  return popupCardElement
 }
 export {renderPopupCards};
-export {popupCardElement};
 
-const renderPopupCardsAvatar = function(popupAvatar){
-  popupAvatar.forEach(({author}) => {
-    popupCardElement.querySelector('.popup__avatar').src = 'img/avatars/user' + author.avatar + '.png';
-  });
-}
-export {renderPopupCardsAvatar};
 
 
