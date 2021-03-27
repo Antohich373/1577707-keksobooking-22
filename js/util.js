@@ -45,3 +45,4 @@ ressetButton.addEventListener('click', function(evt) {
   evt.preventDefault()
   clearSimilarList()
 })
+
