@@ -26,7 +26,6 @@ const successfulSending = function() {
   let successfulMessage = successfulMessageTemplate.cloneNode(true);
   document.querySelector('.main').appendChild(successfulMessage)
 
-
   document.addEventListener('keydown', function (evt) {
     if (evt.keyCode === 27) {
       document.querySelector('.success').remove('.success')
