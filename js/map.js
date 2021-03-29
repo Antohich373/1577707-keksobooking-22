@@ -1,5 +1,4 @@
 /* global L:readonly */
-// import {popupCardElement} from './generationAd.js'
 import {renderPopupCards} from './generationAd.js'
 
 let formChild = document.querySelector('.ad-form')
@@ -54,33 +53,61 @@ marker.on('moveend', (evt) => {
   return evt.target.getLatLng();
 });
 
+// let housType = document.querySelector('#housing-type');
+
+// housType.addEventListener('change', function(evt) {
+//   evt.preventDefault()
+//   const value = event.target.value;
+//   housRank(value);
+// });
+
+// const Default = {
+//   TYPE: 'any',
+// };
+
+// const housRank = function(value, offer) {
+//   let rank = 0;
+//   if(offer.type === (value || Default.TYPE)) {
+//     rank += 2;
+//   }
+//   return rank
+// }
+
+// const sortHous = function(offerA, offerB){
+//   const rankA = housRank( '', offerA)
+//   const rankB = housRank('', offerB)
+//   return rankB - rankA;
+// }
+
 const renderPopupCardsLocation = function(popupLocation){
-  popupLocation.forEach(({location, offer, author}) => {
-    const icon = L.icon({
-      iconUrl: '../img/pin.svg',
-      iconSize: [40, 40],
-      iconAnchor: [20, 40],
-    });
+  popupLocation
+    // .slice()
+    // .sort(sortHous)
+    .forEach(({location, offer, author}) => {
+      const icon = L.icon({
+        iconUrl: '../img/pin.svg',
+        iconSize: [40, 40],
+        iconAnchor: [20, 40],
+      });
+      const lng = location.lng
+      const lat = location.lat
 
-    const lng = location.lng
-    const lat = location.lat
-
-    const marker = L.marker(
-      {
-        lat,
-        lng,
-      },
-      {
-        icon,
-      },
-    );
-
-    marker
-      .addTo(map)
-      .bindPopup(
-        renderPopupCards(offer, author),
+      const marker = L.marker(
+        {
+          lat,
+          lng,
+        },
+        {
+          icon,
+        },
       );
-  });
+
+      marker
+        .addTo(map)
+        .bindPopup(
+          renderPopupCards(offer, author),
+        );
+    });
 }
 
 export {renderPopupCardsLocation}
