@@ -20,14 +20,7 @@ let selectElement = selectFieldset.querySelectorAll('select')
 for (let i = 0; i < selectElement.length; i++) {
   selectElement[i].addEventListener('change', function() {
     let id = this.getAttribute('id');
-    let select;
-
-    if( id === 'timein' ) {
-      select = document.querySelector('#timeout')
-    }
-    else if( id === 'timeout' ) {
-      select = document.querySelector('#timein')
-    }
+    let select = (id === 'timein') ? document.querySelector('#timeout')  : document.querySelector('#timein')
 
     select.value = this.value
   })
